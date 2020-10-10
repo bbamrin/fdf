@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
+#include <stdio.h>
 
 int		parse_size(t_fdf *fdf, char *fname)
 {
@@ -45,8 +45,8 @@ int 	fill_map_line(t_fdf *fdf, char *str, int i)
 		return (0);
 	while (str_arr[j] && j < fdf->width)
 	{
-		fdf->map[i][j] = ft_atoi(str_arr[i]);
-		i++;
+		fdf->map[i][j] = ft_atoi(str_arr[j]);
+		j++;
 	}
 	strsplit_free(&str_arr);
 	return (1);
@@ -78,7 +78,7 @@ int		create_map(t_fdf *fdf, char *fname)
 	int		fd;
 	int 	i;
 
-	if (parse_size(fdf, fname))
+	if (parse_size(fdf, fname) <= 0)
 		return (0);
 	if (!(fdf->map = (int **)ft_memalloc(sizeof(int *) * fdf->height)))
 		return (0);

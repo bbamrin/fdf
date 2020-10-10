@@ -12,7 +12,7 @@ OBJ_DIR = obj/
 all: lib $(NAME)
 
 $(NAME): $(OBJ_DIR) $(addprefix $(OBJ_DIR), $(OBJS))
-	@gcc $(CFLAGS) $(addprefix $(OBJ_DIR), $(OBJS)) -I $(HEADER) -L libft $(LIB)libft.a -L mlx $(LIB)libmlx.a -o $(NAME)
+	@gcc $(CFLAGS) $(addprefix $(OBJ_DIR), $(OBJS)) -I $(HEADER) -L libft $(LIB)libft.a -L libft $(LIB)libmlx.a -o $(NAME)
 	@echo "\033[103;33mfdf DONE\033[0m"
 
 lib:

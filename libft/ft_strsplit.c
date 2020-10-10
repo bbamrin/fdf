@@ -72,9 +72,10 @@ static char		**arr_alloc(char const *str, char c)
 	if (!arr)
 		return (NULL);
 	arr[wc] = 0;
+	//for ("")
 	return (arr);
 }
-
+#include <stdio.h>
 char			**ft_strsplit(char const *s, char c)
 {
 	size_t	i;

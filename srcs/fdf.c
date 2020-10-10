@@ -33,7 +33,12 @@ void print_int_tab(t_fdf *fdf)
 
 void 	free_fdf(t_fdf *fdf)
 {
-	//just placeholder, later will be good free
+	int	i;
+
+	i = -1;
+	while (++i < fdf->height)
+		ft_memdel((void **) &(fdf->map[i]));
+	free((fdf->map));
 	free(fdf);
 }
 
@@ -47,9 +52,11 @@ int		main(int argc, char **argv)
 		return (0);
 	if (!create_map(fdf, argv[1]))
 	{
+		//printf("test\n");
 		free_fdf(fdf);
 		return (0);
 	}
 	print_int_tab(fdf);
+	free_fdf(fdf);
 	return (0);
 }
